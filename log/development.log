@@ -897,3 +897,6 @@ Processing by PostsController#show as HTML
   Rendering posts/show.html.erb within layouts/application
   Rendered authors/_author.html.erb (0.5ms)
   Rendered posts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 19.6ms | ActiveRecord: 1.2ms)
+
+
