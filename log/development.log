@@ -910,3 +910,31 @@ Processing by PostsController#edit as HTML
 Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.2ms)
 
 
+Started PUT "/posts/1" for 72.182.10.227 at 2019-07-12 01:22:26 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mPpUGrbCRzEvHatlBC0h9TbnIjjjpzCNUT2UvunmZDl2UA5M4uzKs2rwidZ7i4KkWLULFCsqm/T6jLGYnGXssA==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf xxx", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "asdfasdf xxx"], ["updated_at", "2019-07-12 01:22:26.092679"], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://67.205.152.27:46565/posts/1
+Completed 302 Found in 8ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/posts/1" for 72.182.10.227 at 2019-07-12 01:22:26 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered authors/_author.html.erb (2.8ms)
+  Rendered posts/show.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @author.name %>
+    2: <%= @author.hometown %>
+  
+app/views/authors/_author.html.erb:1:in `_app_views_authors__author_html_erb__277104120886735196_70201710566100'
+app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__4392877526600554773_70201712096240'
